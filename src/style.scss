@@ -12,18 +12,25 @@ $linear-gradient: linear-gradient(
   rgba(213, 68, 37, 0.552083) 99.99%,
   #d64528 100%
 );
+$linear-gradient2: linear-gradient(90deg, #ec626d -3.75%, #d44827 103.12%);
+$linear-gradient3: linear-gradient(90deg, #d44827 103.12%, #ec626d -3.75%);
 $linear-gradient4: linear-gradient(
+  180deg,
+  #ea825b 0%,
+  rgba(213, 68, 37, 0.552083) 99.99%,
+  #d64528 100%
+);
+$linear-gradient5: linear-gradient(
   270deg,
   rgba(198, 85, 65, 0.23) 0%,
   #ff8082 85.68%
 );
-$linear-gradient5: linear-gradient(
+$linear-gradient6: linear-gradient(
   #ff8082 85.68%,
   270deg,
   rgba(198, 85, 65, 0.23) 0%
 );
-$linear-gradient2: linear-gradient(90deg, #ec8962 -3.75%, #d44827 103.12%);
-$linear-gradient3: linear-gradient(90deg, #d44827 -3.75%, #ec8962 103.12%);
+$linear-gradient7: linear-gradient(90deg, #ec8962 -3.75%, #d44827 103.12%);
 
 *,
 *::before,
@@ -85,7 +92,7 @@ iframe {
     max-width: 1140px;
   }
   @media screen and (min-width: 1400px) {
-    max-width: 1320px;
+    max-width: 1140px;
   }
 }
 
@@ -225,22 +232,36 @@ iframe {
   }
 }
 
-.secondary__button {
-  @extend .primary__button;
+.toast {
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
   font-size: 13px;
   border-radius: 3px;
-  background: $linear-gradient4;
+  background: $linear-gradient5;
   display: flex;
   align-items: center;
+  white-space: nowrap;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
   img {
     width: 20px;
     height: 20px;
   }
-  &:hover {
-    background: $linear-gradient5;
+  .close__icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    object-fit: contain;
   }
+}
+
+.hide {
+  opacity: 0;
 }
 
 // Banner Section
@@ -268,9 +289,9 @@ iframe {
       width: 30%;
       margin: auto;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
       gap: 2rem;
     }
   }
@@ -309,7 +330,7 @@ iframe {
         right: 0;
         bottom: 0;
         left: 0;
-        background: $linear-gradient;
+        background: $linear-gradient4;
         z-index: 1;
       }
       .play__button {
@@ -365,6 +386,7 @@ iframe {
     }
     .primary__button {
       margin-bottom: 1.6rem;
+      background: $linear-gradient7;
     }
   }
 
@@ -389,6 +411,7 @@ iframe {
 
   .countdown__box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 3rem;
@@ -397,10 +420,10 @@ iframe {
       margin-top: 2rem;
       display: flex;
       flex-direction: column;
-      font-size: 3rem;
+      font-size: 1.8rem;
       line-height: 4rem;
       span {
-        font-size: 2rem;
+        font-size: 1.6rem;
         line-height: 3rem;
       }
 
@@ -439,6 +462,12 @@ iframe {
         line-height: 5rem;
         margin-bottom: 3rem;
       }
+    }
+
+    .primary__button {
+      background: $linear-gradient7;
+      font-size: 1.4rem;
+      white-space: pre-wrap;
     }
   }
 

@@ -24,16 +24,24 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink onClick={() => setToggle(!toggle)} to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink onClick={() => setToggle(!toggle)} to="/about">
+                  about
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink onClick={() => setToggle(!toggle)} to="/blog">
+                  blog
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink onClick={() => setToggle(!toggle)} to="/contact">
+                  contact
+                </NavLink>
               </li>
             </ul>
           </nav>

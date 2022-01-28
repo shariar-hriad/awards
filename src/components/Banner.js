@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Banner = () => {
+  const [showToast, setShowToast] = useState(true);
+
   return (
     <section
       className="banner__section"
@@ -15,9 +17,15 @@ const Banner = () => {
             <a href="/signup" className="primary__button">
               sign up
             </a>
-            <a href="/signup" className="secondary__button">
+            <div className={`toast ${showToast ? '' : 'hide'}`}>
               sign up now to get $10 <img src="/images/logo.png" alt="" />
-            </a>
+              <img
+                src="/images/cross.png"
+                alt=""
+                className="close__icon"
+                onClick={() => setShowToast(false)}
+              />
+            </div>
           </div>
         </div>
       </div>
