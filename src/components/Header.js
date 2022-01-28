@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -7,9 +8,10 @@ const Header = () => {
       <div className="container">
         <div className="wrapper">
           <div className="logo">
-            <a href="/">
+            <NavLink to="/">
+              <img src="/images/logo.png" alt="" />
               <h2>Rewards</h2>
-            </a>
+            </NavLink>
           </div>
           {/* mobile bar icon */}
           <button
@@ -22,16 +24,16 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
             </ul>
           </nav>
@@ -39,16 +41,24 @@ const Header = () => {
           <aside className={`mobile__sideBar ${toggle ? 'active' : ''}`}>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <NavLink onClick={() => setToggle(!toggle)} to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink onClick={() => setToggle(!toggle)} to="/about">
+                  about
+                </NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink onClick={() => setToggle(!toggle)} to="/blog">
+                  blog
+                </NavLink>
               </li>
               <li>
-                <a href="/">Home</a>
+                <NavLink onClick={() => setToggle(!toggle)} to="/contact">
+                  contact
+                </NavLink>
               </li>
             </ul>
           </aside>

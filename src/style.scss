@@ -2,8 +2,28 @@
 // variables
 $primary-color: #fff;
 $button-bg: #ffac33;
-$text-black: #000;
+$night-black: #0b0b0b;
 $bright-blue: #1ccdf3;
+$gray-dark: #f1f1f1;
+$dark-green: #171717;
+$linear-gradient: linear-gradient(
+  180deg,
+  #ea825b 0%,
+  rgba(213, 68, 37, 0.552083) 99.99%,
+  #d64528 100%
+);
+$linear-gradient4: linear-gradient(
+  270deg,
+  rgba(198, 85, 65, 0.23) 0%,
+  #ff8082 85.68%
+);
+$linear-gradient5: linear-gradient(
+  #ff8082 85.68%,
+  270deg,
+  rgba(198, 85, 65, 0.23) 0%
+);
+$linear-gradient2: linear-gradient(90deg, #ec8962 -3.75%, #d44827 103.12%);
+$linear-gradient3: linear-gradient(90deg, #d44827 -3.75%, #ec8962 103.12%);
 
 *,
 *::before,
@@ -53,6 +73,35 @@ iframe {
   margin: 0 auto;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+// Logo
+.logo a {
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+}
+
 // Header Area
 .header__area {
   position: absolute;
@@ -66,9 +115,7 @@ iframe {
   .wrapper {
     display: flex;
     justify-content: space-between;
-    .logo a {
-      color: $primary-color;
-    }
+
     .mobile__menu {
       width: 3rem;
       border: none;
@@ -92,10 +139,26 @@ iframe {
     ul {
       display: flex;
       list-style: none;
-      gap: 1rem;
+      gap: 2rem;
     }
+
     ul a {
       color: $primary-color;
+      font-size: 1.6rem;
+      text-transform: capitalize;
+      position: relative;
+      transition: all 0.3s ease;
+      &::before {
+        position: absolute;
+        content: '';
+        top: 100%;
+        left: 0;
+        height: 2px;
+        background: $night-black;
+      }
+    }
+    ul li:hover a::before {
+      right: 0;
     }
   }
   .mobile__sideBar {
@@ -114,7 +177,7 @@ iframe {
       width: 100%;
       height: 100%;
       li a {
-        color: $text-black;
+        color: $night-black;
       }
     }
   }
@@ -125,21 +188,42 @@ iframe {
 
 // button
 .primary__button {
-  background: $button-bg;
-  color: $text-black;
+  background: $linear-gradient2;
+  color: $primary-color;
   padding: 1rem 2rem;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1.6rem;
   border-radius: 8px;
   transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  white-space: nowrap;
 
   &:hover {
-    color: $primary-color;
+    background: $linear-gradient3;
   }
 
   @media screen and (min-width: 992px) {
     padding: 1.5rem 3.5rem;
+  }
+}
+
+.secondary__button {
+  @extend .primary__button;
+  font-size: 13px;
+  border-radius: 3px;
+  background: $linear-gradient4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  &:hover {
+    background: $linear-gradient5;
   }
 }
 
@@ -164,6 +248,15 @@ iframe {
         margin: 3rem;
       }
     }
+    .cta__button {
+      width: 30%;
+      margin: auto;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+    }
   }
 }
 
@@ -172,7 +265,7 @@ iframe {
   padding: 4rem 0;
   &_content {
     text-align: center;
-    color: $text-black;
+    color: $dark-green;
     &_title {
       font-size: 3rem;
       line-height: 4rem;
@@ -200,7 +293,7 @@ iframe {
         right: 0;
         bottom: 0;
         left: 0;
-        background: rgba(49, 111, 222, 0.8);
+        background: $linear-gradient;
         z-index: 1;
       }
       .play__button {
@@ -235,8 +328,8 @@ iframe {
 // Refer Section
 .refer__section {
   padding: 4rem 0;
-  background: $bright-blue;
-  color: $primary-color;
+  background: $gray-dark;
+  color: $night-black;
 
   .refer__content {
     text-align: center;
@@ -315,6 +408,7 @@ iframe {
 // Cash Back
 .cashback__section {
   padding: 4rem 0;
+  color: $dark-green;
 
   .cashback__content {
     text-align: center;
@@ -339,26 +433,65 @@ iframe {
 
 // Footer Section
 .footer__section {
-  padding: 4rem 0;
-  background: $bright-blue;
+  padding-top: 4rem;
+  background: $linear-gradient;
   color: $primary-color;
 
   .footer__content {
+    flex: 1;
+    max-width: 350px;
+    width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+
     &_title {
-      font-size: 3rem;
-      line-height: 4rem;
-      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+      color: $primary-color;
 
       @media screen and (min-width: 992px) {
-        font-size: 4rem;
-        line-height: 5rem;
-        margin-bottom: 3rem;
+        font-size: 3.6rem;
+        line-height: 5.4rem;
       }
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+
+    .support__mail {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      color: $primary-color;
+    }
+  }
+
+  .border__bottom {
+    margin-top: 4rem;
+    border-bottom: 1px solid rgba(213, 75, 42, 0.25);
+  }
+
+  .copyright {
+    padding: 2rem 1rem;
+    text-align: center;
+
+    p {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: $primary-color;
     }
   }
 
   @media screen and (min-width: 992px) {
-    padding: 11rem 0;
+    padding-top: 11rem;
   }
 }

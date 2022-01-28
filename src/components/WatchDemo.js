@@ -14,7 +14,7 @@ const WatchDemo = () => {
           >
             <button className="play__button">
               {/* <img src="/images/Vector.png" alt="" /> */}
-              <i class="fas fa-play"></i>
+              <i className="fas fa-play"></i>
             </button>
           </div>
         </div>
